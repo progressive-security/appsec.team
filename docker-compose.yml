@@ -26,7 +26,7 @@ services:
       - web-root:/var/www/html
     depends_on:
       - webimage
-    command: certonly --webroot --webroot-path=/var/www/html --email artem@merets.ru --agree-tos --staging --no-eff-email -d appsec.team  -d www.appsec.team
+    command: certonly --webroot --webroot-path=/var/www/html --email artem@merets.ru --agree-tos --no-eff-email -d appsec.team  -d www.appsec.team
 
 volumes:
   certbot-etc:
