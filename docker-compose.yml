@@ -30,6 +30,11 @@ services:
 
 volumes:
   certbot-etc:
+    driver: local
+    driver_opts:
+      type: none
+      device: /tmp/lets
+      o: bind
   certbot-var:
   web-root:
     driver: local
