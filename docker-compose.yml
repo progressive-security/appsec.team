@@ -2,15 +2,12 @@ version: '3'
 
 services:
 
-  webimage:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: webimage
-    container_name: webcontainer
+  simplewebserver:
+    image: nginx
+    container_name: simplewebserver
     restart: unless-stopped
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - web-root:/var/www/html
       - certbot-etc:/etc/letsencrypt
@@ -24,8 +21,26 @@ services:
       - certbot-var:/var/lib/letsencrypt
       - web-root:/var/www/html
     depends_on:
-      - webimage
-    command: certonly --webroot --webroot-path=/var/www/html --email artem@merets.ru --agree-tos --no-eff-email -d appsec.team  -d www.appsec.team
+      - simplewebserver
+    command: certonly --webroot --webroot-path=/var/www/html --email artem@merets.ru --agree-tos --staging --no-eff-email -d appsec.team  -d www.appsec.team
+
+
+  webimage:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: webimage
+    container_name: webcontainer
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - web-root:/var/www/html
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+    depends_on:
+      - certbot
+
 
 volumes:
   certbot-etc:
