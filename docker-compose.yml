@@ -11,6 +11,10 @@ services:
     restart: unless-stopped
     ports:
       - "8080:80"
+    volumes:
+      - web-root:/var/www/html
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
 
   certbot:
     image: certbot/certbot
@@ -18,6 +22,7 @@ services:
     volumes:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
+      - web-root:/var/www/html
     depends_on:
       - webimage
     command: certonly --webroot --webroot-path=/var/www/html --email artem@merets.ru --agree-tos --no-eff-email -d appsec.team  -d www.appsec.team
@@ -25,3 +30,9 @@ services:
 volumes:
   certbot-etc:
   certbot-var:
+  web-root:
+    driver: local
+    driver_opts:
+      type: none
+      device: /tmp/appsec.team/src/
+      o: bind
