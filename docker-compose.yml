@@ -1,18 +1,9 @@
 version: '3.4'
 
 services:
-  cert:
-    container_name: cert
-    image: certbot/certbot
-    command: certonly -d appsec.team -d www.appsec.team --non-interactive --agree-tos -m artem@merets.ru --standalone
-    ports:
-    - "80:80"
-    volumes:
-    - /etc/letsencrypt:/etc/letsencrypt
-    - /var/lib/letsencrypt:/var/lib/letsencrypt
 
   nginx:
-    container_name: nginx
+    container_name: site
     build:
       context: .
     restart: always
@@ -22,6 +13,3 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    command:  sleep 30s && nginx -g 'daemon off;'
-    depends_on:
-      - cert
