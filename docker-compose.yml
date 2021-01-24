@@ -4,7 +4,7 @@ services:
   nginx:
     container_name: nginx
     build:
-      context: ./nginx
+      context: .
       network: host
       args:
         - CERTBOT_EMAIL=artem@merets.ru
