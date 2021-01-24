@@ -1,44 +1,18 @@
-version: '3'
+version: '3.4'
 
 services:
-
-  webimage:
+  nginx:
+    container_name: nginx
     build:
-      context: .
-      dockerfile: Dockerfile
-    image: webimage
-    container_name: webcontainer
-    restart: unless-stopped
+      context: ./nginx
+      network: host
+      args:
+        - CERTBOT_EMAIL=artem@merets.ru
+        - DOMAIN_LIST=appsec.team,www.appsec.team
+    restart: always
+    volumes:
+      - ./nginx/config/conf.d/prod:/etc/nginx/conf.d
+      - letsencrypt:/etc/letsencrypt
     ports:
       - "80:80"
       - "443:443"
-    volumes:
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/lib/letsencrypt
-      - web-root:/var/www/html
-
-  certbot:
-    image: certbot/certbot
-    container_name: certbot
-    volumes:
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/lib/letsencrypt
-      - web-root:/var/www/html
-    depends_on:
-      - webimage
-    command: certonly --webroot --webroot-path=/var/www/html --email artem@merets.ru --agree-tos --no-eff-email -d appsec.team  -d www.appsec.team
-
-volumes:
-  certbot-etc:
-    driver: local
-    driver_opts:
-      type: none
-      device: /tmp/lets
-      o: bind
-  certbot-var:
-  web-root:
-    driver: local
-    driver_opts:
-      type: none
-      device: /tmp/www
-      o: bind
