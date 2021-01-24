@@ -11,7 +11,7 @@ services:
         - DOMAIN_LIST=appsec.team,www.appsec.team
     restart: always
     volumes:
-      - ./nginx/config/conf.d/prod:/etc/nginx/conf.d
+      - ./nginx/conf.d:/etc/nginx/conf.d
       - letsencrypt:/etc/letsencrypt
     ports:
       - "80:80"

@@ -2,7 +2,7 @@ FROM nginx:stable
 ARG CERTBOT_EMAIL=artem@merets.ru
 ARG DOMAIN_LIST
 COPY src/ /usr/share/nginx/html
-COPY site.conf /etc/nginx/conf.d/appsec.team.conf
+COPY nginx/conf.d/default.conf /etc/nginx/conf.d/appsec.team.conf
 RUN  apt-get update \
       && apt-get install -y cron bash wget \
       && wget -O /usr/local/bin/certbot-auto https://dl.eff.org/certbot-auto \
