@@ -12,5 +12,5 @@ RUN  apt-get update \
       && rm -rf /var/lib/apt/lists/* \
       && echo "@monthly /usr/local/bin/certbot-auto renew --nginx >> /var/log/cron.log 2>&1" >/etc/cron.d/certbot-renew \
       && crontab /etc/cron.d/certbot-renew
-VOLUME letsencrypt /etc/letsencrypt
+VOLUME /etc/letsencrypt
 CMD [ "sh", "-c", "cron && nginx -g 'daemon off;'" ]
