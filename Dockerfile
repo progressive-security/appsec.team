@@ -4,7 +4,7 @@ ARG DOMAIN_LIST
 COPY src/ /usr/share/nginx/html
 COPY nginx/conf.d/default.conf /etc/nginx/conf.d/appsec.team.conf
 RUN  apt-get update \
-      && apt-get install -y crozn bash wget \
+      && apt-get install -y cron bash wget \
       && wget -O /usr/local/bin/certbot-auto https://dl.eff.org/certbot-auto \
       && chown root /usr/local/bin/certbot-auto \
       && chmod 0755 /usr/local/bin/certbot-auto \
