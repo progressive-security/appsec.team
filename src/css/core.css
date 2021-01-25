@@ -5,3 +5,13 @@ body {
 .navbar-static-top {
     margin-bottom: 19px;
 }
+
+.carousel-caption {
+    position: absolute;
+    right: 15%;
+    top: 35%;
+    left: 15%;
+    margin: 0 auto;
+    display: block;
+    color: #fff;
+}

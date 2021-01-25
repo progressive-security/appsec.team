@@ -42,10 +42,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/index.html">Top</a>
+                    <a class="nav-link" aria-current="page" href="/index.html">Top</a>
                 </li>
+                <!--
                 <li class="nav-item">
-                    <a class="nav-link" href="/framework.html">Framework</a>
+                    <a class="nav-link" aria-current="page" href="#">Blog</a>
+                </li>
+                -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Framework</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -53,9 +58,21 @@
                         Practices
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <!--
+                        <li><a class="dropdown-item" href="#">Awareness</a></li>
+                        <li><a class="dropdown-item" href="#">Trainings</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">SAST</a></li>
+                        -->
                     </ul>
                 </li>
             </ul>
+            <!--            <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form> -->
         </div>
     </div>
 </nav>
@@ -121,12 +138,104 @@
 <div class="container">
 
     <div class="alert alert-danger m-5" role="alert">
-        Be aware the web-site is under construction!
+        Be aware the page is under construction!
     </div>
 
     <!-- Caption of the page -->
-    <h1 class="mt-4 mb-4">Application Security Team #AppSecTeam</h1>
+    <h1 class="mt-4 mb-4"><b>ASF</b> | Application Security Framework #AppSecTeam</h1>
 
+    <h2 class="mt-4 mb-3">Introduction</h2>
+    <p>There are many different approaches which teach how to build secure application. You are reading one of them.</p>
+    <p>We do not assert that ASF is the best way to make your application secure. We do not pretend to lead appsec
+        world.
+        This is just an attempt to mix many years of practical application
+        security experience with security practices.
+    </p>
+
+    <p>If You are looking for authoritative approaches, we strongly recommend to start from well-known ones:
+    <ul>
+        <li>Microsoft SDL https://www.microsoft.com/en-us/securityengineering/sdl</li>
+        <li>OWASP SAMM https://owaspsamm.org</li>
+        <li>BSIMM https://www.bsimm.com</li>
+    </ul>
+    </p>
+
+    <h2 class="mt-4 mb-3">How does ASF differ from the others</h2>
+    <ul>
+        <li>focused on the application, not development or security</li>
+        <li>flat design (without nested layers that make it difficult to dive into the framework)</li>
+        <li>column is a direction, cell is a practice</li>
+        <li>different ways of grouping the practices (by maturity level, by ability to automate, etc)</li>
+    </ul>
+
+    <h2 class="mt-4 mb-3">ASF</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h4>Governance</h4>
+                <!-- Governance / Trainings -->
+                <div class="card mb-2 p-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Trainings</h5>
+                        <p class="card-text">CTF, workshops, lessons, articles</p>
+                    </div>
+                    <ul class="lh-sm fw-lighter">
+                        <li>For: QA, developers</li>
+                        <li>Why: to improve practical experience in teams</li>
+                        <li>Profit: the ability to find some vulns, more attentive team</li>
+                    </ul>
+                </div>
+
+                <!-- Governance / Awareness -->
+                <div class="card mb-2 p-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Awareness</h5>
+                        <p class="card-text">Cyber incidents overview, best practices, surveys</p>
+                    </div>
+                    <ul class="lh-sm fw-lighter">
+                        <li>For: development teams</li>
+                        <li>Why: to show that cyberattack are not myths</li>
+                        <li>Profit: the ability to fear cyber threats instead of frivolous perception</li>
+                    </ul>
+                </div>
+                <!-- Governance / KPI and Performance Management -->
+                <div class="card mb-2 p-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">KPI and Performance Management</h5>
+                        <p class="card-text">Reports, internal surveys, analysis</p>
+                    </div>
+                    <ul class="lh-sm fw-lighter">
+                        <li>For: leadership team</li>
+                        <li>Why: to give teams opportunity to want improve security state (KPI is a powerful reason)
+                        </li>
+                        <li>Profit: teams ask how to improve security instead of you try to prove that security is
+                            important
+                        </li>
+                    </ul>
+                </div>
+                <!-- Governance / PoC Demonstrations -->
+                <div class="card mb-2 p-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">PoC Demonstrations</h5>
+                        <p class="card-text">Demonstrations with a real or obviously impact</p>
+                    </div>
+                    <ul class="lh-sm fw-lighter">
+                        <li>For: executives, product owners</li>
+                        <li>Why: owners always want to make money, it is necessary to prove they can loose profit
+                            without security
+                        </li>
+                        <li>Profit: application security posture and importance</li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col">
+            </div>
+
+            <div class="col">
+            </div>
+        </div>
+    </div>
 
 </div>
 
